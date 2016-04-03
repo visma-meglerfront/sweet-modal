@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>SweetModal: Examples</title>
+
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Architects+Daughter" />
+		<link rel="stylesheet" href="https://assets.adepto.as/themes/fonts/nexa/stylesheet.css" />
+		<link rel="stylesheet" href="clear-sans/stylesheet.css" />
+		<link rel="stylesheet" href="//cdn.jsdelivr.net/font-hack/2.019/css/hack.min.css" />
+		<link rel="stylesheet" href="css/examples.css" />
+		<link rel="stylesheet" href="css/jquery.sweet-modal.min.css" />
+
+		<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js" async></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.sweet-modal.min.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				var variants = {
+					'alert': {
+						args: [
+							'This is an alert.'
+						]
+					},
+
+					'alert-success': {
+						args: [
+							{
+								content: 'This is a success.',
+								icon: $.sweetModal.ICON_SUCCESS
+							}
+						]
+					},
+
+					'alert-warning': {
+						args: [
+							{
+								content: 'This is a warning.',
+								icon: $.sweetModal.ICON_WARNING,
+							}
+						]
+					},
+
+					'alert-error-with-buttons': {
+						args: [
+							{
+								content: 'This is an error.',
+								title: 'Oh noes…',
+								icon: $.sweetModal.ICON_ERROR,
+
+								buttons: {
+									'That\'s fine': {
+										classes: 'redB'
+									}
+								}
+							}
+						]
+					},
+
+					'alert-with-title': {
+						args: [
+							'Titled Alert',
+							'This is an alert.'
+						]
+					},
+
+					'confirm': {
+						fn: $.sweetModal.confirm,
+
+						args: [
+							'Confirm please?',
+
+							function() {
+								$.sweetModal('Thanks for confirming!');
+							}
+						]
+					},
+
+					'confirm-with-title': {
+						fn: $.sweetModal.confirm,
+
+						args: [
+							'Titled Confirm',
+							'Confirm please?',
+							function() {
+								$.sweetModal('Thanks for confirming!');
+							}, function() {
+								$.sweetModal('You declined. That\'s okay!');
+							}
+						]
+					},
+
+					'prompt': {
+						fn: $.sweetModal.prompt,
+
+						args: [
+							'Can I haz cheezeburger?',
+							null,
+							null,
+							function(val) {
+								$.sweetModal('You typed: ' + val);
+							}
+						]
+					},
+
+					'prompt-with-value': {
+						fn: $.sweetModal.prompt,
+
+						args: [
+							'Can I haz cheezeburger?',
+							'Can I?',
+							'Nope',
+							function(val) {
+								$.sweetModal('You typed: ' + val);
+							}
+						]
+					},
+
+					'tabbed': {
+						args: [
+							{
+								title: {
+									tab1: {
+										label: 'Tab 1'
+									},
+
+									tab2: {
+										label: 'Tab 2'
+									}
+								},
+
+								content: {
+									tab1: 'Tab 1',
+									tab2: 'Tab 2'
+								}
+							}
+						]
+					},
+
+					'tabbed-with-buttons': {
+						args: [
+							{
+								title: {
+									tab1: {
+										label: 'Tab 1'
+									},
+
+									tab2: {
+										label: 'Tab 2'
+									}
+								},
+
+								content: {
+									tab1: 'Tab 1',
+									tab2: 'Tab 2'
+								},
+
+								buttons: {
+									'Action 2': {
+										classes: 'secondaryB bordered flat',
+										action: function() {
+											return $.sweetModal('You clicked Action 2!');
+										}
+									},
+
+									'Action 1': {
+										classes: '',
+										action: function() {
+											return $.sweetModal('You clicked Action 1!');
+										}
+									},
+								}
+							}
+						]
+					},
+
+					'tabbed-with-icons': {
+						args: [
+							{
+								title: {
+									tab1: {
+										label: 'Tab 1',
+										icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" /></svg>'
+									},
+
+									tab2: {
+										label: 'Tab 2',
+										icon: '<svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#000000" d="M12,17L7,12H10V8H14V12H17L12,17M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z" /></svg>'
+									}
+								},
+
+								content: {
+									tab1: 'Tab 1',
+									tab2: 'Tab 2'
+								}
+							}
+						]
+					},
+
+					'html-content': {
+						args: [
+							{
+								title: 'HTML Content',
+								content: 'You can place <b>anything</b> <i>you</i> want in here.'
+							}
+						]
+					},
+
+					'html-content-dark': {
+						args: [
+							{
+								title: 'HTML Content',
+								content: 'You can place <b>anything</b> <i>you</i> want in here.',
+								theme: $.sweetModal.THEME_DARK
+							}
+						]
+					},
+
+					'youtube': {
+						args: [
+							{
+								title: 'Will YouTube Ever Run Out Of Video IDs?',
+								content: 'https://www.youtube.com/watch?v=gocwRvLhDf8',
+								theme: $.sweetModal.THEME_DARK
+							}
+						]
+					}
+				};
+
+				for (var key in variants) {
+					if (variants.hasOwnProperty(key)) {
+						var variant = variants[key];
+
+						$('#' + key).on('click', { variant: variant }, function(e) {
+							var variant = e.data.variant;
+
+							variant.fn = variant.fn || $.sweetModal;
+							variant.fn.apply(this, variant.args);
+						});
+					}
+				}
+			});
+		</script>
+	</head>
+
+	<body>
+		<header>
+			<div class="logo">
+				<span class="logo">
+					<span class="sweet">Sweet</span>
+					<span class="modal nexa">Modal</span>
+				</span>
+			</div>
+
+			<div class="slogan">
+				Sweet, easy and powerful.
+			</div>
+		</header>
+
+		<section class="intro">
+			<div class="wrap">
+				<h2>
+					Replace <code>alert()</code>,  <code>confirm()</code>,  <code>prompt()</code>
+					and many plugins with style and elegance.
+				</h2>
+			</div>
+		</section>
+
+		<section class="demo">
+			<div class="example">
+				<div class="meta">
+					<h3><span>Alert</span></h3>
+
+					<button id="alert" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetAlert('This is an alert.');</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Alert with Success Icon</span></h3>
+
+					<button id="alert-success" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetAlert({
+	content: 'This is a success.',
+	icon: $.sweetModal.ICON_SUCCESS
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Alert with Warning Icon</span></h3>
+
+					<button id="alert-warning" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetAlert({
+	content: 'This is a warning.',
+	icon: $.sweetModal.ICON_WARNING
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Alert with Error Icon and Button</span></h3>
+
+					<button id="alert-error-with-buttons" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetAlert({
+	content: 'This is an error.',
+	title: 'Oh noes…',
+	icon: $.sweetModal.ICON_ERROR,
+
+	buttons: {
+		'That\'s fine': {
+			classes: 'redB'
+		}
+	}
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Alert with Title</span></h3>
+
+					<button id="alert-with-title" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetAlert('Titled Alert', 'This is an alert.');</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Confirm</span></h3>
+
+					<button id="confirm" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal.confirm('Confirm please?', function() {
+	$.sweetModal('Thanks for confirming!');
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Confirm with Title</span></h3>
+
+					<button id="confirm-with-title" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal.confirm('Titled Confirm', 'Confirm please?', function() {
+	$.sweetModal('Thanks for confirming!');
+}, function() {
+	$.sweetModal('You declined. That\'s okay!');
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Prompt</span></h3>
+
+					<button id="prompt" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal.prompt('Can I haz cheezeburger?', null, null, function(val) {
+	$.sweetAlert('You typed: ' + val);
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Prompt with Value</span></h3>
+
+					<button id="prompt-with-value" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal.prompt('Can I haz cheezeburger?', 'Can I?', 'Nope', function(val) {
+	$.sweetAlert('You typed: ' + val);
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Tabbed</span></h3>
+
+					<button id="tabbed" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal({
+	title: {
+		tab1: {
+			label: 'Tab 1'
+		},
+
+		tab2: {
+			label: 'Tab 2'
+		}
+	},
+
+	content: {
+		tab1: 'Tab 1',
+		tab2: 'Tab 2'
+	}
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Tabbed with Buttons</span></h3>
+
+					<button id="tabbed-with-buttons" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal({
+	title: {
+		tab1: {
+			label: 'Tab 1'
+		},
+
+		tab2: {
+			label: 'Tab 2'
+		}
+	},
+
+	content: {
+		tab1: 'Tab 1',
+		tab2: 'Tab 2'
+	},
+
+	buttons: {
+		'Action 2': {
+			classes: 'secondaryB bordered flat',
+			action: function() {
+				return $.sweetModal('You clicked Action 2!');
+			}
+		},
+
+		'Action 1': {
+			classes: '',
+			action: function() {
+				return $.sweetModal('You clicked Action 1!');
+			}
+		},
+	}
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>Tabbed with Icons</span></h3>
+
+					<button id="tabbed-with-icons" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal({
+	title: {
+		tab1: {
+			label: 'Tab 1',
+			icon: '&lt;svg style="width:24px;height:24px" viewBox="0 0 24 24">&lt;path fill="#000000" d="M12,19.2C9.5,19.2 7.29,17.92 6,16C6.03,14 10,12.9 12,12.9C14,12.9 17.97,14 18,16C16.71,17.92 14.5,19.2 12,19.2M12,5A3,3 0 0,1 15,8A3,3 0 0,1 12,11A3,3 0 0,1 9,8A3,3 0 0,1 12,5M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,6.47 17.5,2 12,2Z" />&lt;/svg>'
+		},
+
+		tab2: {
+			label: 'Tab 2',
+			icon: '&lt;svg style="width:24px;height:24px" viewBox="0 0 24 24">&lt;path fill="#000000" d="M12,17L7,12H10V8H14V12H17L12,17M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L5,8.09V15.91L12,19.85L19,15.91V8.09L12,4.15Z" />&lt;/svg>'
+		}
+	},
+
+	content: {
+		tab1: 'Tab 1',
+		tab2: 'Tab 2'
+	}
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>HTML-Content</span></h3>
+
+					<button id="html-content" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal({
+	title: 'HTML Content',
+	content: 'You can place &lt;b>anything&lt;/b> &lt;i>you&lt;/i> want in here.'
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>HTML-Content (Dark)</span></h3>
+
+					<button id="html-content-dark" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal({
+	title: 'HTML Content',
+	content: 'You can place &lt;b>anything&lt;/b> &lt;i>you&lt;/i> want in here.',
+	theme: $.sweetModal.THEME_DARK
+});</pre>
+				</div>
+			</div>
+
+			<div class="example">
+				<div class="meta">
+					<h3><span>YouTube</span></h3>
+
+					<button id="youtube" class="bordered">Try out!</button>
+				</div>
+
+				<div class="code">
+					<pre class="prettyprint">$.sweetModal({
+	title: 'Will YouTube Ever Run Out Of Video IDs?',
+	content: 'https://www.youtube.com/watch?v=gocwRvLhDf8',
+	theme: $.sweetModal.THEME_DARK
+});</pre>
+				</div>
+			</div>
+		</section>
+
+		<section class="setup">
+			<div class="wrap">
+				<h2>Installation</h2>
+
+				<div class="note"><b>Note:</b> You need to have <a href="http://jquery.com">jQuery</a> installed to use SweetModal.</div>
+
+				<h3>Package Managers</h3>
+
+				<div class="methods">
+					<div class="method bower">
+						<pre class="prettyprint">$ bower install sweet-modal</pre>
+					</div>
+
+					<div class="method npm">
+						<pre class="prettyprint">$ npm install sweet-modal</pre>
+					</div>
+				</div>
+
+				<br /><br />
+
+				<h3>Manual</h3>
+
+				<div class="methods">
+					<div class="method manual">
+						<ol>
+							<li>
+								<a class="button bordered" href="http://github.com/adeptoas/sweet-modal/tarball/master.zip">Download</a>
+							</li>
+
+							<li>
+								<pre class="prettyprint">&lt;link rel="stylesheet" href="sweet-modal/dist/min/jquery.sweet-modal.min.css" /></pre>
+								<pre class="prettyprint">&lt;script src="sweet-modal/dist/min/jquery.sweet-modal.min.js">&lt;/script></pre>
+							</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="options">
+			<div class="wrap">
+				<h2>Options</h2>
+
+				<p class="desc">
+					This is an overview of all available options. If you want to override an option for every instance,
+					you can override the corresponding key in <code>$.sweetModal.defaultSettings</code>.<br />
+					For overriding implied values, see "Overrides".
+				</p>
+
+				<h3>Modal</h3>
+
+				<div class="twrap">
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Default Value</th>
+							<th>Description</th>
+						</tr>
+
+						<tr>
+							<td>title</td>
+							<td><pre>''</pre></td>
+							<td>
+								Title. If empty or falsy, tde modal becomes type alert.<br />
+								<br />
+								If this is an object, the modal becomes tabbed. More information at tab options.
+							</td>
+						</tr>
+
+						<tr>
+							<td>content</td>
+							<td><pre>''</pre></td>
+							<td>
+								Content of the modal. Allows HTML.<br />
+								<br />
+								If title is an object, this has to be an object as well. The keys have to be the same
+								keys as the title's keys with corresponding contents.
+							</td>
+						</tr>
+
+						<tr>
+							<td>icon</td>
+							<td><pre>''</pre></td>
+							<td>
+								(Animated) icon inside the modal.<br />
+								<br />
+								- <code>$.sweetModal.ICON_SUCCESS</code><br />
+								- <code>$.sweetModal.ICON_WARNING</code><br />
+								- <code>$.sweetModal.ICON_ERROR</code><br />
+							</td>
+						</tr>
+
+						<tr>
+							<td>classes</td>
+							<td><pre>[]</pre></td>
+							<td>Additional CSS classes to add to the overlay element.</td>
+						</tr>
+
+						<tr>
+							<td>showCloseButton</td>
+							<td><pre>true</pre></td>
+							<td>
+								Whether or not to show the close button.
+								If you hide it, make sure to have disabled <code>blocking</code> or provide
+								any other method to close the modal.
+							</td>
+						</tr>
+
+						<tr>
+							<td>blocking</td>
+							<td><pre>true</pre></td>
+							<td>
+								Whether or not to allow the user to dismiss the modal by clicking the overlay.
+							</td>
+						</tr>
+
+						<tr>
+							<td>timeout</td>
+							<td><pre>null</pre></td>
+							<td>
+								Auto-closes the modal after a certain amount of milliseconds. If falsy
+								no auto-closing will be done.
+							</td>
+						</tr>
+
+						<tr>
+							<td>theme</td>
+							<td><pre>$.sweetModal.THEME_LIGHT</pre></td>
+							<td>
+								Theme to use:<br />
+								- <code>$.sweetModal.THEME_LIGHT</code><br />
+								- <code>$.sweetModal.THEME_DARK</code>
+							</td>
+						</tr>
+
+						<tr>
+							<td>type</td>
+							<td><pre>$.sweetModal.TYPE_MODAL</pre></td>
+							<td>
+								Type of modal:<br />
+								- <code>$.sweetModal.TYPE_MODAL</code> (regular styles)<br />
+								- <code>$.sweetModal.TYPE_ALERT</code> (styles specifically for alerts)
+							</td>
+						</tr>
+
+						<tr>
+							<td>buttons</td>
+							<td><pre>{}</pre></td>
+							<td>The key of each button is the label. See button options for individual options.</td>
+						</tr>
+
+						<tr>
+							<td>onOpen</td>
+							<td><pre>function() {}</pre></td>
+							<td>
+								Callback running when the modal is being opened.<br />
+								Receives the SweetModal instance as first argument.
+							</td>
+						</tr>
+
+						<tr>
+							<td>onClose</td>
+							<td><pre>function() {}</pre></td>
+							<td>
+								Callback running when the modal is being closed.
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<h3>Tabs</h3>
+
+				<div class="twrap">
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Default Value</th>
+							<th>Description</th>
+						</tr>
+
+						<tr>
+							<td>label</td>
+							<td>''</td>
+							<td>
+								The label of the tab. If no label is given, the tab becomes
+								icon-only.
+							</td>
+						</tr>
+
+						<tr>
+							<td>icon</td>
+							<td>''</td>
+							<td>
+								An SVG string or any other HTML image tag containing the logo.<br />
+								If this is an SVG string its colors will be modified via CSS.
+							</td>
+						</tr>
+
+						<tr>
+							<td>iconCSS</td>
+							<td>{}</td>
+							<td>
+								Specific CSS rules for the icon. Uses <code>$.css</code>-syntax, i.e. <code>marginTop</code>.
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<h3>Buttons</h3>
+
+				<div class="twrap">
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Default Value</th>
+							<th>Description</th>
+						</tr>
+
+						<tr>
+							<td>action</td>
+							<td><pre>function(sweetModal) {}</pre></td>
+							<td>
+								Callback to run if the user presses the button. The callback
+								receives an object of the currently active modal as the first argument.<br />
+								Return <code>false</code> to stop the modal from automatically closing.
+							</td>
+						</tr>
+
+						<tr>
+							<td>classes</td>
+							<td><pre>''</pre></td>
+							<td>
+								Additional CSS classes for the button.<br />
+								Ideally you use the color classes provided by sweetModal here:<br /><br />
+								- secondaryB <br />
+								- redB <br />
+								- blueB <br />
+								- greenB <br />
+								- darkGreyB <br />
+								- lightGreyB <br />
+								- yellowB <br />
+								- purpleB <br />
+								- tealB <br />
+								- brownB <br />
+								- orangeB <br />
+								- pinkB <br />
+							</td>
+						</tr>
+					</table>
+
+					<h3>Overrides</h3>
+
+					<p class="desc">
+						There are implied values used by the plugin to enable convenient alert, confirm and prompt calls.<br />
+						This is a list of all implied values (path inside <code>$.sweetModal.defaultSettings</code>):
+					</p>
+
+					<div class="twrap">
+						<table>
+							<tr>
+								<th>Path</th>
+								<th>Default Value</th>
+								<th>Description</th>
+							</tr>
+
+							<tr>
+								<td>confirm.yes.label</td>
+								<td><pre>'Yes'</pre></td>
+								<td>Label of the "Yes" button</td>
+							</tr>
+
+							<tr>
+								<td>confirm.yes.classes</td>
+								<td><pre>'greenB'</pre></td>
+								<td>Space-seperated list of classes to add to the "Yes" button</td>
+							</tr>
+
+							<tr>
+								<td>confirm.ok.label</td>
+								<td><pre>'OK'</pre></td>
+								<td>Label of the "OK" button</td>
+							</tr>
+
+							<tr>
+								<td>confirm.ok.classes</td>
+								<td><pre>'greenB'</pre></td>
+								<td>Space-seperated list of classes to add to the "OK" button</td>
+							</tr>
+
+							<tr>
+								<td>confirm.cancel.label</td>
+								<td><pre>'Cancel'</pre></td>
+								<td>Label of the "Cancel" button</td>
+							</tr>
+
+							<tr>
+								<td>confirm.cancel.classes</td>
+								<td><pre>'redB bordered flat'</pre></td>
+								<td>Space-seperated list of classes to add to the "Cancel" button</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="adapters">
+			<div class="wrap">
+				<h2>Adapters</h2>
+
+				<p class="desc">
+					SweetModal comes with some adapters built-in. Here's what they do:
+				</p>
+
+				<h3 class="no-transform no-letter-spacing">alert()</h3>
+
+				<p>
+					By calling <code>$.sweetModal.mapNativeFunctions()</code> you can override
+					the browser's <code>alert()</code>-function to use <code>$.sweetModal</code>.<br />
+					<b>Note:</b> In contrast to <code>alert()</code>, SweetModal does NOT block further code execution.
+				</p>
+
+				<h3 class="no-transform no-letter-spacing">$.confirm</h3>
+
+				<p>
+					Automatically assigned if <code>$.confirm</code> is not defined already.
+					This adapts (mostly) compatible calls to <code>$.sweetModal</code>.<br />
+					<code>$.confirm</code> is a
+					<a href="http://tutorialzine.com/2010/12/better-confirm-box-jquery-css3/">custom jQuery plugin showcased by Tutorialzine</a>.
+				</p>
+			</div>
+		</section>
+
+		<section class="license">
+			<div class="wrap">
+				<h2>License &amp; Copyright</h2>
+
+				<pre>/*!
+ * SweetModal: Sweet, easy and powerful modals and dialogs
+ * http://github.com/adeptoas/sweet-modal
+ *
+ * Copyright (c) 2016 Adepto.as AS · Oslo, Norway
+ * Dual licensed under the MIT and GPL licenses.
+ *
+ * See LICENSE-MIT.txt and LICENSE-GPL.txt
+ */</pre>
+			</div>
+		</section>
+
+		<footer>
+			<div class="copyright">
+				&copy; 2016 <a href="http://adepto.as"><img src="https://assets.adepto.as/images/adepto/logo_grey.svg" /></a> ·
+				This plugin is dual-licensed under the MIT- and GPLv2-licenses. 
+				<br />
+				For help, visit <a href="https://github.com/adeptoas/sweet-modal/issues">the issues section</a> of this repository.
+			</div>
+
+			<div class="links">
+				<a href="http://github.com/adeptoas">
+					<svg style="width:24px; height:24px" viewBox="0 0 24 24">
+					    <path fill="#000000" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+					</svg>
+
+					GitHub
+				</a>
+			</div>
+		</footer>
+	</body>
+</html>

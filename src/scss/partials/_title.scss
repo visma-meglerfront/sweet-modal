@@ -1,0 +1,179 @@
+.sweet-modal-title-wrap {
+	border-bottom: 1px solid $lightBorder;
+
+	padding: {
+		top: 20px;
+		bottom: 20px;
+		left: 36px;
+		right: 16px;
+	}
+
+	.sweet-modal-overlay.tabbed & {
+		padding: {
+			top: 16px;
+			bottom: 16px;
+			left: 24px;
+			right: 24px;
+		}
+	}
+}
+
+.sweet-modal-title {
+
+	h2 {
+		@include mp0;
+
+		font: {
+			family: $heading-font;
+			weight: 500;
+			size: 21px;
+		}
+
+		color: $darkColor;
+		margin-top: 2px;
+	}
+
+	.sweet-modal-tabs-links {
+		margin: {
+			left: -36px;
+			top: -20px;
+			bottom: -20px;
+			right: -16px;
+		}
+
+		ul {
+			@include mp0;
+
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+
+			overflow-x: auto;
+
+			li {
+				display: block;
+
+				a {
+					display: block;
+					position: relative;
+
+					text-align: center;
+					text-decoration: none;
+
+					font-size: 16px;
+					color: $lightGreyText;
+
+					transition: all 0.2s;
+
+					&, label {
+						cursor: pointer;
+					}
+
+					label {
+						display: block;
+					}
+
+					.icon {
+						display: block;
+						margin: auto;
+
+						height: 24px;
+						width: 28px;
+
+						svg {
+							width: 100%;
+							height: 100%;
+
+							&, path {
+								fill: $lightGreyText;
+								transition: fill 0.2s;
+							}
+						}
+					}
+
+					.icon + label {
+						margin-top: 8px;
+					}
+
+					&::after {
+						content: '';
+						opacity: 0;
+
+						width: 0px;
+						height: 0px;
+
+						border: 6px solid transparent;
+						border-bottom-color: $lightBorder;
+
+						position: absolute;
+						bottom: 0px;
+						left: 50%;
+						margin-left: -6px;
+
+						transition: all 0.2s;
+					}
+				}
+
+				& + li a {
+					border-left: 1px solid $lightBorder;
+				}
+
+				&:last-child a {
+					border-right: 1px solid $lightBorder;
+				}
+
+				&:hover a {
+					color: $darkColor;
+
+					.icon svg {
+
+						&, path {
+							fill: $darkColor;
+						}
+					}
+				}
+
+				&.active a {
+					color: $accent;
+					font-weight: 600;
+
+					&, label {
+						@include unselectable;
+					}
+
+					.icon {
+
+						svg {
+
+							&, path {
+								fill: $accent;
+							}
+						}
+					}
+
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+}
+
+.sweet-modal-overlay.tabbed .sweet-modal-title .sweet-modal-tabs-links {
+	margin: {
+		left: -24px;
+		right: -24px;
+		top: -16px;
+		bottom: -16px;
+	}
+
+	ul li a {
+		padding: {
+			top: 24px;
+			bottom: 24px;
+			left: 24px;
+			right: 24px;
+		}
+	}
+}

@@ -1,0 +1,44 @@
+.sweet-modal-close {
+	position: absolute;
+	
+	z-index: 4000;
+	right: 18px;
+	top: 14px;
+
+	a.sweet-modal-close-link {
+		display: block;
+
+		width: 36px;
+		height: 36px;
+
+		border-radius: 100%;
+
+		background: {
+			color: transparent;
+			image: url(../images/close.svg);
+			size: 26px;
+			position: center;
+		}
+
+		transition: all 0.2s;
+
+		&:hover {
+			background-color: $accent;
+			background-image: url(../images/close_light.svg);
+		}
+
+		&:active {
+			background-color: $accent;
+		}
+	}
+
+	.sweet-modal-overlay.tabbed & {
+		top: 6px;
+		right: 12px;
+	}
+
+	@include media(phone) {
+		top: 14px;
+		right: 18px;
+	}
+}

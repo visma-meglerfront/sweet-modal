@@ -1,0 +1,241 @@
+.sweet-modal-buttons {
+	border-top: 1px solid $lightBorder;
+	margin-top: 16px + 32px;
+
+	text-align: right;
+
+	padding: {
+		left: 22px;
+		right: 22px;
+		top: 18px;
+		bottom: 18px;
+	}
+
+	// Buttons
+	a.button,
+	button {
+		@extend %button;
+	}
+
+	@include media(phone) {
+		@include border-box;
+
+		position: absolute;
+
+		bottom: 0;
+		left: 0;
+		
+		width: 100%;
+
+		background: #fff;
+	}
+}
+
+%button {
+	display: inline-block;
+
+	background: $accent;
+	border: 1px solid darken($accent, 12%);
+	color: #fff;
+
+	font-size: 13px;
+	font-family: $content-font;
+	font-weight: 500;
+	text-align: center;
+	text-decoration: none;
+
+	border-radius: 3px;
+	cursor: pointer;
+
+	padding: {
+		top: 8px;
+		bottom: 8px;
+		left: 12px;
+		right: 12px;
+	}
+
+	margin-left: 12px;
+	min-width: 64px;
+
+	transition: all 0.2s;
+	outline: 0;
+
+	&:hover {
+		background: lighten($accent, 8%);
+		color: #fff;
+		text-decoration: none;
+	}
+
+	&:active {
+		background: darken($accent, 12%);
+		color: lighten($accent, 50%);
+		border-color: darken($accent, 20%);
+		box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.4);
+	}
+
+	&.accentB {
+		$color: $accent;
+
+		background: $color;
+		border-color: darken($color, 12%);
+
+		&:hover {
+			background: lighten($color, 8%);
+		}
+
+		&:active {
+			background: darken($color, 12%);
+			color: lighten($color, 50%);
+			border-color: darken($color, 20%);
+		}
+
+		&.bordered {
+			background: none;
+			border-color: $color;
+			color: $color;
+
+			&:hover {
+				background: $color;
+				color: #fff;
+				border-color: darken($color, 12%);
+			}
+
+			&:active {
+				background: darken($color, 12%);
+				color: lighten($color, 50%);
+				border-color: darken($color, 20%);
+			}
+		}
+	}
+
+	$colors: (
+		('blue', $blue),
+		('red', $red),
+		('yellow', $yellow),
+		('blue', $blue),
+		('green', $green),
+		('red', $red),
+		('pink', $pink),
+		('secondary', $secondary),
+		('white', #fff)
+	);
+
+	@each $colorPair in $colors {
+		$name: nth($colorPair, 1);
+		$color: nth($colorPair, 2);
+
+		&.#{$name}B {
+			background: $color;
+			border-color: darken($color, 12%);
+
+			@if saturation($color) < 10 or lightness($color) > 90 {
+				color: $darkColor;
+
+				&:hover {
+					background: darken($color, 8%);
+					color: lighten($darkColor, 5%);
+				}
+
+				&:active {
+					background: darken($color, 12%);
+					box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2);
+					border-color: darken($color, 20%);
+				}
+			} @else {
+				&:hover {
+					background: lighten($color, 8%);
+				}
+
+				&:active {
+					background: darken($color, 12%);
+					color: lighten($color, 50%);
+					border-color: darken($color, 20%);
+				}
+			}
+
+			&.bordered {
+				background: none;
+				border-color: $color;
+				color: $color;
+
+				// too light color
+				@if saturation($color) < 10 or lightness($color) > 90 {
+					// color: $darkColor;
+
+					&:hover {
+						background: $color;
+						color: $darkColor;
+						border-color: $color;
+					}
+
+					&:active {
+						background: darken($color, 12%);
+						color: darken($color, 50%);
+						border-color: darken($color, 20%);
+					}
+				} @else {
+					&:hover {
+						background: $color;
+						color: #fff;
+						border-color: darken($color, 12%);
+					}
+
+					&:active {
+						background: darken($color, 12%);
+						color: lighten($color, 50%);
+						border-color: darken($color, 20%);
+					}
+				}
+			}
+		}
+	}
+
+	&.darkB {
+		$color: $darkGrey;
+
+		background: $color;
+		border-color: darken($color, 12%);
+
+		&:hover {
+			background: lighten($color, 8%);
+		}
+
+		&:active {
+			background: darken($color, 12%);
+			color: lighten($color, 50%);
+			border-color: darken($color, 20%);
+		}
+
+		&.bordered {
+			background: none;
+			border-color: $color;
+			color: $color;
+
+			&:hover {
+				background: $color;
+				color: #fff;
+				border-color: darken($color, 12%);
+			}
+
+			&:active {
+				background: darken($color, 12%);
+				color: lighten($color, 50%);
+				border-color: darken($color, 20%);
+			}
+		}
+	}
+
+	&.disabledB {
+		background: lighten($blue, 20%);
+		border-color: lighten($blue, 14%);
+		color: darken($blue, 5%);
+		cursor: default;
+		pointer-events: none;
+
+		@include vendor-prefix(user-select, none);
+	}
+
+	&.bordered.flat {
+		border-color: transparent;
+	}
+}

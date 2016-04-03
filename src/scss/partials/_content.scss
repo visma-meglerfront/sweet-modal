@@ -1,0 +1,54 @@
+.sweet-modal-content {
+	@include border-box;
+
+	line-height: 1.5;
+	font-size: 14px;
+
+	padding: {
+		left: 36px;
+		right: 36px;
+		top: 32px;
+		bottom: 32px;
+	}
+
+	p:first-child {
+		margin-top: 0;
+	}
+
+	pre {
+		overflow-x: auto;
+	}
+
+	b {
+		font-weight: 600;
+	}
+
+	.sweet-modal-icon {
+		margin-bottom: 24px;
+	}
+
+	.sweet-modal-prompt {
+
+		[type=text],
+		[type=password],
+		[type=number] {
+			@include border-box;
+			width: 100%;
+		}
+	}
+
+	@include media(phone) {
+		overflow: auto;
+		margin-bottom: 64px;
+	}
+
+	.sweet-modal-box.alert & {
+		text-align: center;
+		font-size: 16px;
+
+		padding: {
+			top: 64px;
+			bottom: 64px;
+		}
+	}
+}

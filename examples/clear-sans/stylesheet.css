@@ -1,0 +1,63 @@
+/**
+ * WEBFONTS
+ * generated using webfonts.gidix.net
+ * 
+ * 02.04.2016, 21:16
+ */
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Bold_Italic.ttf');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Italic.ttf');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Light_Regular.ttf');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Medium_Italic.ttf');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Medium_Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Clear Sans';
+	src: url('Clear_Sans_Thin_Regular.ttf');
+	font-weight: 100;
+	font-style: normal;
+}
+

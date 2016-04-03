@@ -1,0 +1,27 @@
+$accent: #0099cc !default;
+$lightBG: #f6f6f6 !default;
+$lightColor: #fff !default;
+$lightText: #fff !default;
+$lightGreyText: #999 !default;
+$lightBorder: #e0e0e0 !default;
+
+$darkColor: #292c34 !default;
+$darkGreyText: hsl(hue($darkColor), 5%, 40%) !default;
+$darkBorder: darken($darkColor, 6%) !default;;
+
+$heading-font: 'Roboto', 'Open Sans', sans-serif !default;
+$content-font: 'Roboto', 'Open Sans', sans-serif !default;
+
+// Colors for Buttons
+$secondary: $darkColor !default;;
+$red: #E64A33 !default;
+$blue: #27AAE1 !default;
+$green: #B7D968 !default;
+$darkGrey: #5A5A5A !default;
+$lightGrey: #999 !default;
+$yellow: #f39c12 !default;
+$purple: #673AB7 !default;
+$teal: #009688 !default;
+$brown: #795548 !default;
+$orange: #F57C00 !default;
+$pink: #E91E63 !default;

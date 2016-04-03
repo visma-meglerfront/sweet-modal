@@ -1,0 +1,501 @@
+@import "modules/vars";
+@import "modules/mixins";
+
+// some re-using to mitigate duplicates
+@import "partials/buttons";
+
+$darkColor: #142B39;
+$accent: $pink;
+
+$content-font: 'Clear Sans', 'Open Sans', Roboto, sans-serif;
+$quirky-font: Architects Daughter, sans-serif;
+
+body {
+	@include mp0;
+
+	font-size: 15px;
+	font-family: $content-font;
+	line-height: 1.3;
+
+	-webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .nexa {
+	@include mp0;
+	font-family: Nexa, Roboto, Open Sans, sans-serif;
+}
+
+pre, h4 {
+	@include mp0;
+}
+
+pre {
+	overflow: auto;
+}
+
+p.desc {
+	@include mp0;
+	color: $lightGrey;
+}
+
+a {
+	color: $accent;
+	text-decoration: none;
+	transition: color 0.2s;
+
+	&:hover {
+		color: $lightGrey;
+		text-decoration: underline;
+	}
+}
+
+a.button, button {
+	@extend %button;
+	@extend %button.pinkB;
+
+	margin-left: 0;
+}
+
+input[type=text] {
+	padding: {
+		left: 12px;
+		right: 12px;
+		top: 8px;
+		bottom: 8px;
+	}
+
+	outline: 0;
+	border-radius: 3px;
+	border: 1px solid $lightBorder;
+	box-shadow: inset 0px 2px 8px rgba(#000, 0.04);
+}
+
+header {
+	@extend %wrapper;
+	@include table;
+
+	padding: {
+		top: 48px;
+		bottom: 32px;
+	}
+
+	> .logo {
+		@include cell(middle, 264px);
+		text-align: center;
+
+		span.logo {
+			display: block;
+
+		//	background: $darkColor;
+		//	color: #fff;
+
+			font-size: 32px;
+
+			padding: {
+				top: 24px;
+				bottom: 24px;
+			}
+
+			border-radius: 3px;
+
+			span.sweet {
+				color: $pink;
+				font-family: $quirky-font;
+			}
+
+			span.modal {
+				font-weight: 600;
+			}
+		}
+	}
+
+	.slogan {
+		@include cell(middle, auto);
+
+		padding-left: 48px;
+
+		font-family: $quirky-font;
+		font-size: 24px;
+	}
+
+	@include media(tablet) {
+		display: block;
+
+		> .logo, .slogan {
+			display: block;
+			width: auto;
+			text-align: center;
+			
+			padding: 0;
+		}
+
+		> .logo + .slogan {
+			margin-top: 16px;
+		}
+	}
+}
+
+section {
+	position: relative;
+
+	.wrap {
+		@extend %wrapper;
+
+		padding: {
+			left: 32px;
+			right: 32px;
+			top: 64px;
+			bottom: 64px;
+		}
+	}
+
+	h2 {
+		position: relative;
+
+		font-size: 24px;
+		text-transform: uppercase;
+		font-weight: 800;
+
+		margin-bottom: 24px;
+	}
+
+	h3 {
+		font-size: 16px;
+		font-weight: 600;
+
+		margin-bottom: 16px;
+
+		&:not(.no-transform) {
+			text-transform: uppercase;
+		}
+
+		&:not(.no-letter-spacing) {
+			letter-spacing: 4px;
+		}
+	}
+
+	&.intro {
+		background: #C2185B;
+		color: #fff;
+
+		h2 {
+			@include mp0;
+			text-transform: none;
+
+			code {
+				display: inline-block;
+
+				font-size: 25px;
+				text-transform: none;
+			}
+		}
+	}
+
+	&.intro + &.demo {
+		padding-top: 32px;
+	}
+
+	&.demo {
+		//color: #fff;
+		//background: #C2185B;
+
+		.example {
+			@extend %wrapper;
+			@extend %grid;
+
+			padding: {
+				top: 32px;
+				bottom: 32px;
+				left: 24px;
+				right: 24px;
+			}
+
+			.meta {
+				@extend %col-1-3;
+			}
+
+			.code {
+				@extend %col-2-3;
+
+				pre {
+					@include mp0;
+					@include border-box;
+
+					width: 100%;
+					border-radius: 3px;
+
+					background: #292c34;
+					color: #fff;
+
+					font-family: Hack, Source Code Pro, monospace;
+					font-size: 13px;
+					line-height: 1.5;
+					tab-size: 4;
+
+					padding: {
+						top: 16px;
+						bottom: 16px;
+						left: 20px;
+						right: 20px;
+					}
+				}
+			}
+
+			&:nth-child(odd) {
+				background: #ECEFF1;
+			}
+
+			@include media(tablet) {
+				.meta + .code {
+					margin-top: 32px;
+				}
+			}
+		}
+	}
+
+	&.demo + &.setup {
+		margin-top: 32px;
+	}
+
+	&.setup {
+		background: #292c34;
+		color: #fff;
+
+		h2 {
+			color: $pink;
+			margin-bottom: 0;
+		}
+
+		.methods {
+			@extend %grid;
+
+			.method {
+				@include border-box;
+
+				background: rgba(#000, 0.2);
+
+				margin: 5px;
+				width: 100%;
+
+				padding: {
+					left: 20px;
+					right: 20px;
+					top: 20px;
+					bottom: 20px;
+				}
+			
+				&.npm, &.bower {
+					@extend %col-1-2;
+				}
+
+				&.manual {
+
+					ol {
+						@include mp0;
+						padding-left: 24px;
+
+						li {
+							padding-left: 20px;
+							line-height: 1.5;
+
+							& + li {
+								margin-top: 12px;
+							}
+
+							h4 {
+								font-size: 16px;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.note {
+			margin: {
+				bottom: 48px;
+			}
+		}
+	}
+
+	&.options {
+
+		p.desc + h3,
+		.twrap + h3 {
+			margin-top: 64px;
+		}
+
+		.twrap {
+			overflow-x: auto;
+		}
+
+		p.desc + .twrap {
+			margin-top: 32px;
+		}
+
+		table {
+			width: 100%;
+			border: 0;
+			border-collapse: collapse;
+
+			td, th {
+				font-size: 16px;
+				padding: {
+					left: 16px;
+					right: 16px;
+					top: 12px;
+					bottom: 12px;
+				}
+
+				text-align: left;
+				vertical-align: top;
+			}
+
+			th {
+				@extend .nexa;
+
+				font-size: 13px;
+				font-weight: 600;
+				text-transform: uppercase;
+
+				border-bottom: 2px solid $accent;
+				color: $accent;
+			}
+
+			tr:nth-child(even) {
+				background: #ECEFF1;
+			}
+		}
+	}
+
+	&.adapters {
+
+		h2 {
+			margin-bottom: 0;
+		}
+
+		p + h3 {
+			margin-top: 36px;
+		}
+	}
+}
+
+footer {
+	@include table;
+	@include border-box;
+
+	padding: {
+		left: 32px;
+		right: 32px;
+		top: 24px;
+		bottom: 24px;
+	}
+
+	.copyright {
+		@include cell(middle, 50%);
+
+		color: $lightGrey;
+		font-size: 12px;
+
+		img {
+			height: 14px;
+			vertical-align: middle;
+		}
+	}
+
+	.links {
+		@include cell(middle, 50%);
+		text-align: right;
+
+		a {
+			color: $accent;
+
+			svg {
+				height: 16px;
+				width: 16px;
+
+				vertical-align: middle;
+				margin-top: -2px;
+
+				&, path {
+					fill: $accent;
+					transition: all 0.2s;
+				}
+			}
+
+			&:hover {
+				color: $lightGrey;
+				text-decoration: none;
+
+				svg, svg path {
+					fill: $lightGrey;
+				}
+			}
+		}
+	}
+}
+
+/* Prettyprint */
+$prettify: (
+	("pln", #fff),
+	("pun", #fff),
+	("com", #999),
+	("typ", #66D9EF),
+	("kwd", #F92672),
+	("tag", #F92672),
+	("atn", #A6E22E),
+	("atv", #E6DB74),
+	("str", #E6DB74),
+	("lit", #AE81FF)
+);
+
+pre.prettyprint {
+	color: #F8F8F8;
+	border: 0 !important;
+	-webkit-font-smoothing: auto;
+}
+
+@each $theme in $prettify {
+	$type: nth($theme, 1);
+	$color: nth($theme, 2);
+
+	pre.prettyprint .#{$type} {
+		color: $color !important;
+	}
+}
+
+/* Extensions */
+%wrapper {
+	@include border-box;
+
+	max-width: 1000px;
+	margin: auto;
+}
+
+%grid {
+	display: flex;
+}
+
+%col-1-3 {
+	width: 33.33%;
+}
+
+%col-1-2 {
+	width: 50%;
+}
+
+%col-2-3 {
+	width: 66.67%;
+}
+
+@include media(tablet) {
+	%grid {
+		display: block;
+	}
+
+	%col-1-3,
+	%col-1-2,
+	%col-2-3 {
+		width: 100%;
+	}
+}

@@ -1,0 +1,105 @@
+@mixin vendor-prefix($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+	-ms-#{$name}: #{$argument};
+	-moz-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+
+@mixin table($autoWidth: 1) {
+	display: table;
+	table-layout: fixed;
+
+	@if $autoWidth == 1 {
+		width: 100%;
+	}
+}
+
+@mixin cell($vdir, $width) {
+	display: table-cell;
+	vertical-align: $vdir;
+	width: $width;
+}
+
+@mixin table-reset {
+	display: block;
+	width: auto;
+}
+
+@mixin mp0 {
+	margin: 0;
+	padding: 0;
+}
+
+@mixin ulreset {
+	@include mp0;
+	list-style-type: none;
+}
+
+@mixin transform($t) {
+	-webkit-transform: $t;
+	transform: $t;
+}
+
+@mixin keyframes($animation-name) {
+	@-webkit-keyframes #{$animation-name} {
+		@content;
+	}
+
+	@keyframes #{$animation-name} {
+		@content;
+	}
+}
+
+@mixin animation($str) {
+	-webkit-animation: #{$str};
+	animation: #{$str};
+}
+
+@mixin border-box {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin vertical-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	@include transform(translateX(-50%) translateY(-50%));
+}
+
+@mixin unselectable {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+
+@mixin ellipsis {
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+@mixin media($type) {
+	@if $type == mobile or $type == phone {
+		@media screen and (max-width: 420px) {
+			@content;
+		}
+	} @else if $type == tablet {
+		@media screen and (max-width: 600px) {
+			@content;
+		}
+	} @else {
+		@media screen and (min-width: 601px) {
+			@content;
+		}
+	}
+}
+
+@mixin placeholder {
+	&::-webkit-input-placeholder { @content }
+	&:-moz-placeholder           { @content }
+	&::-moz-placeholder          { @content }
+	&:-ms-input-placeholder      { @content }
+}

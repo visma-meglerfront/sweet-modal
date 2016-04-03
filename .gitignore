@@ -1,0 +1,10 @@
+dist/*
+node_modules
+.sass-cache
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

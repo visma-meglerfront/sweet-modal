@@ -1,0 +1,56 @@
+.sweet-modal-box {
+	font-family: $content-font;
+	font-size: 14px;
+
+	position: absolute;
+	width: 64%;
+	left: 50% - 64/2;
+
+	margin: auto;
+
+	margin: {
+		top: 96px;
+		bottom: 96px;
+	}
+
+	border-radius: 3px;
+	background: #fff;
+	box-shadow: 0px 8px 46px rgba(#000, 0.08), 0px 2px 6px rgba(#000, 0.03);
+
+	.sweet-modal-content + .sweet-modal-buttons {
+		margin-top: 0px;
+	}
+
+	&.alert {
+		width: 50%;
+		left: 50% - 50/2;
+	}
+
+	&.prompt {
+		width: 50%;
+		left: 50% - 50/2;
+	}
+
+	@media screen and (max-width: 777px) {
+		width: 82%;
+		left: 50% - 82/2;
+	}
+
+	@include media(phone) {
+
+		&, &.prompt, &.alert {
+			width: 100%;
+			height: 100%;
+			max-height: 100%;
+
+			left: 0;
+
+			margin: {
+				top: 0;
+				bottom: 0;
+			}
+
+			border-radius: 0px;
+		}
+	}
+}

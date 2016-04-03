@@ -1,0 +1,48 @@
+{
+  "name": "sweet-modal",
+  "version": "1.0.0",
+  "description": "Sweet Modal Plugin for jQuery",
+  "main": "src/dist/min/jquery.sweet-modal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sweet",
+    "model",
+    "alert",
+    "jquery",
+    "plugin",
+    "lightbox"
+  ],
+  "author": "Adepto.as AS",
+  "contributors": [
+    {
+      "name": "Benjamin Schmidt",
+      "email": "bs@adepto.as"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adeptoas/sweet-modal"
+  },
+  "bugs": "https://github.com/adeptoas/sweet-modal/issues",
+  "homepage": "http://sweet-modal.adepto.as/",
+  "license": "(MIT OR GPL-2.0)",
+  "devDependencies": {
+    "coffeeify": "^2.0.1",
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compress": "^1.2.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "load-grunt-tasks": "^3.4.1",
+    "node-static": "^0.7.7",
+    "http": "0.0.0"
+  },
+  "dependencies": {
+    "jquery": "^2.2.2"
+  }
+}

@@ -1,0 +1,89 @@
+// Bouncing animation
+@include keyframes(bounce) {
+	from 	{ @include transform(scale(1));    }
+	to 		{ @include transform(scale(1.02)); }
+}
+
+//
+// Icons + Animation originally by SweetAlert, t4t5.
+// https://github.com/t4t5/sweetalert
+//
+
+// Success Icon
+@include keyframes(animateSuccessTip) {
+	0%		{ width: 0;		left: 1px;		top: 19px; }
+	54%		{ width: 0;		left: 1px;		top: 19px; }
+	70%		{ width: 50px;	left: -8px;		top: 37px; }
+	84%		{ width: 17px;	left: 21px;		top: 48px; }
+	100%	{ width: 25px;	left: 14px;		top: 45px; }
+}
+
+@include keyframes(animateSuccessLong) {
+	0%		{ width: 0;		right: 46px;	top: 54px; }
+	65%		{ width: 0;		right: 46px;	top: 54px; }
+	84%		{ width: 55px;	right: 0px;		top: 35px; }
+	100%	{ width: 47px;	right: 8px;		top: 38px; }
+}
+
+@include keyframes(rotatePlaceholder) {
+	0%		{ @include transform(rotate(-45deg)); }
+	5%		{ @include transform(rotate(-45deg)); }
+	12%   	{ @include transform(rotate(-405deg)); }
+	100%	{ @include transform(rotate(-405deg)); }
+}
+
+.animateSuccessTip {
+	@include animation('animateSuccessTip 0.75s');
+}
+
+.animateSuccessLong {
+	@include animation('animateSuccessLong 0.75s');
+}
+
+.sweet-modal-icon.sweet-modal-success.animate::after {
+	@include animation('rotatePlaceholder 4.25s ease-in');
+}
+
+/* Error Icon */
+@include keyframes(animateErrorIcon) {
+	0%		{ @include transform(rotateX(100deg));	opacity: 0; }
+	100%	{ @include transform(rotateX(0deg));	opacity: 1; }
+}
+
+.animateErrorIcon {
+	@include animation('animateErrorIcon 0.5s');
+}
+
+@include keyframes(animateXMark) {
+	0%    { @include transform(scale(0.4));	 margin-top: 26px;	opacity: 0; }
+	50%   { @include transform(scale(0.4));	 margin-top: 26px;	opacity: 0; }
+	80%   { @include transform(scale(1.15)); margin-top: -6px;				}
+	100%  { @include transform(scale(1));	 margin-top: 0;		opacity: 1; }
+}
+
+.animateXMark {
+	@include animation('animateXMark 0.5s');
+}
+
+@include keyframes(pulseWarning) {
+	0%		{ border-color: #F8D486; }
+	100%	{ border-color: #F8BB86; }
+}
+
+.pulseWarning {
+	@include animation('pulseWarning 0.75s infinite alternate');
+}
+
+@include keyframes(pulseWarningIns) {
+	0%		{ background-color: #F8D486; }
+	100%	{ background-color: #F8BB86; }
+}
+
+.pulseWarningIns {
+	@include animation('pulseWarningIns 0.75s infinite alternate');
+}
+
+@include keyframes(rotate-loading) {
+	0%		{ @include transform(rotate(0deg));   }
+	100%	{ @include transform(rotate(360deg)); }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "sweet-modal",
+  "description": "Sweet Modal Plugin for jQuery",
+  "main": "dist/min/jquery.sweet-modal.min.js",
+  "authors": [
+    "Adepto.as AS",
+    "Benjamin Schmidt <bs@adepto.as>"
+  ],
+  "keywords": [
+    "sweet",
+    "model",
+    "alert",
+    "jquery",
+    "plugin",
+    "lightbox"
+  ],
+  "moduleType": [],
+  "homepage": "http://sweet-modal.adepto.as/",
+    "license": "(MIT OR GPL-2.1)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adeptoas/sweet-modal"
+  },
+  "dependencies": {
+    "jquery": ">=2.2.0"
+  },
+  "ignore": [
+    "**/.*",
+    "examples",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
