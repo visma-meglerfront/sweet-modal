@@ -11,7 +11,7 @@ Install SweetModal through bower **or** npm:
     npm install sweetmodal
     bower install sweetmodal
     
-You can also install it manually by [downloading a release archive](https://github.com/adeptoas/sweetmodal/releases).
+You can also install it manually by [downloading a release archive](https://github.com/adeptoas/sweet-modal/releases).
 
 Reference these files in your HTML:
 
