@@ -275,18 +275,47 @@
 	# Constants
 
 	###*
+	 * All styles for all the components.
+	 * You can mix and match individually.
+	 *
+	 * @type {Object}
+	###
+	$.sweetModal.THEME_COMPONENTS = {
+		LIGHT_OVERLAY: 'light-overlay',
+		LIGHT_MODAL: 'light-modal',
+		DARK_OVERLAY: 'dark-overlay',
+		DARK_MODAL: 'dark-modal'
+	};
+
+	###*
 	 * Light Theme-Constant
 	 *
-	 * @type {String}
+	 * @type {Array}
 	###
-	$.sweetModal.THEME_LIGHT = 'light'
+	$.sweetModal.THEME_LIGHT = [
+		$.sweetModal.THEME_COMPONENTS.LIGHT_OVERLAY,
+		$.sweetModal.THEME_COMPONENTS.LIGHT_MODAL
+	]
 
 	###*
 	 * Dark Theme-Constant
 	 *
-	 * @type {String}
+	 * @type {Array}
 	###
-	$.sweetModal.THEME_DARK = 'dark'
+	$.sweetModal.THEME_DARK = [
+		$.sweetModal.THEME_COMPONENTS.DARK_OVERLAY,
+		$.sweetModal.THEME_COMPONENTS.DARK_MODAL
+	]
+
+	###*
+	 * Mixed Theme-Constant
+	 *
+	 * @type {Array}
+	###
+	$.sweetModal.THEME_MIXED = [
+		$.sweetModal.THEME_COMPONENTS.DARK_OVERLAY,
+		$.sweetModal.THEME_COMPONENTS.LIGHT_MODAL
+	]
 
 	$.sweetModal.TYPE_ALERT = 'alert'
 	$.sweetModal.TYPE_MODAL = 'modal'

@@ -1,6 +1,4 @@
-.sweet-modal-overlay {
-	background: radial-gradient(at center, rgba($lightColor, 0.84) 0%, rgba($lightColor, 0.96) 100%);
-	
+.sweet-modal-overlay {	
 	position: fixed;
 
 	top: 0;
@@ -10,6 +8,8 @@
 
 	z-index: 901;
 	overflow-y: auto;
+
+	background: radial-gradient(at center, rgba($lightColor, 0.84) 0%, rgba($lightColor, 0.96) 100%);
 
 	-webkit-transform: translate3D(0, 0, 0);
 	-webkit-perspective: 500px;
@@ -24,103 +24,6 @@
 		animation-duration: 0.1s;
 		animation-iteration-count: 2;
 		animation-direction: alternate;
-	}
-
-	// Dark Theme
-	&.dark {
-		background: rgba(darken($darkColor, 6%), 0.98);
-		
-		.sweet-modal-close a.sweet-modal-close-link {
-			background-color: darken($darkColor, 6%);
-			background-image: url(../images/close_light.svg);
-
-			&:hover {
-				background-color: $accent;
-			}
-		}
-
-		.sweet-modal-box {
-			background: darken($darkColor, 2%);
-			color: #fff;
-			box-shadow: 0px 8px 24px rgba(#000, 0.1), 0px 2px 6px rgba(#000, 0.03);
-
-			.sweet-modal-title-wrap {
-				border-color: darken($darkColor, 6%);
-				box-shadow: 0px 1px 0px lighten($darkColor, 1%);
-			}
-
-			.sweet-modal-title {
-
-				h2 {
-					color: #fff;
-				}
-
-				.sweet-modal-tabs-links ul {
-
-					li a {
-						color: $darkGreyText;
-
-						.icon svg {
-
-							&, path {
-								fill: $darkGreyText;
-							}
-						}
-					}
-
-					li:hover a {
-						color: #fff;
-
-						.icon svg {
-
-							&, path {
-								fill: #fff;
-							}
-						}
-					}
-
-					li.active a {
-						color: $accent;
-
-						.icon svg {
-
-							&, path {
-								fill: $accent;
-							}
-						}
-
-						&::after {
-							border-bottom-color: $darkBorder;
-						}
-					}
-
-					li + li a {
-						border-left-color: $darkBorder;
-					}
-
-					li:last-child a {
-						border-right-color: $darkBorder;
-					}
-				}
-			}
-
-			.sweet-modal-buttons {
-				border-color: darken($darkColor, 6%);
-				box-shadow: inset 0px 1px 0px lighten($darkColor, 1%);
-			}
-		}
-
-		div::-webkit-scrollbar-thumb, pre::-webkit-scrollbar-thumb {
-			background: lighten($darkColor, 4%); // Scroll-Piece
-
-			&:hover {
-				background: $accent;
-			}
-		}
-
-		div::-webkit-scrollbar-track-piece, pre::-webkit-scrollbar-track-piece {
-			background: darken($darkColor, 2%); // Scroll-Bar-BG
-		}
 	}
 
 	// Animations

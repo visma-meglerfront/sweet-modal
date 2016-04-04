@@ -164,7 +164,7 @@ class SweetModal
 			return @$overlay
 
 		# Construct Basics
-		$overlay = $(templates.overlay).addClass(@params.theme)
+		$overlay = $(templates.overlay).addClass(if @params.theme then @params.theme.join(' ') else $.sweetModal.THEME_LIGHT.join(' '))
 		$modal = $(templates.modal)
 
 		# Hide close button, if requested

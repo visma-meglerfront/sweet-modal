@@ -678,9 +678,19 @@
 							<td>theme</td>
 							<td><pre>$.sweetModal.THEME_LIGHT</pre></td>
 							<td>
-								Theme to use:<br />
+								Theme to use:<br /><br />
 								- <code>$.sweetModal.THEME_LIGHT</code><br />
-								- <code>$.sweetModal.THEME_DARK</code>
+								- <code>$.sweetModal.THEME_DARK</code><br />
+								- <code>$.sweetModal.THEME_MIXED</code><br />
+								<br />
+								You can also theme components individually (currently overlay and modal) by setting
+								this to an array containing a configuration of these constants:<br /><br />
+								- <code>$.sweetModal.THEME_COMPONENTS.LIGHT_OVERLAY</code><br />
+								- <code>$.sweetModal.THEME_COMPONENTS.LIGHT_MODAL</code><br />
+								- <code>$.sweetModal.THEME_COMPONENTS.DARK_OVERLAY</code><br />
+								- <code>$.sweetModal.THEME_COMPONENTS.DARK_MODAL</code><br />
+								<br />
+								Any non-provided component defaults to its LIGHT setting.
 							</td>
 						</tr>
 
