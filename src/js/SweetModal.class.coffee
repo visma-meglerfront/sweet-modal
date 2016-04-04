@@ -171,6 +171,14 @@ class SweetModal
 		if not @params.showCloseButton
 			$modal.find('.sweet-modal-close').remove()
 
+		# Change width, if requested
+		if @params.width isnt 'auto'
+			$modal.css(
+				width: @params.width
+				left: '50%'
+				transform: 'translateX(-50%)'
+			)
+
 		# Construct Buttons
 		@_constructButtons($modal)
 
