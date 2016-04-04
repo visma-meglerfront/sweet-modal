@@ -208,7 +208,7 @@
 
 		classes: []
 		showCloseButton: true
-		blocking: true
+		blocking: false
 		timeout: null
 		theme: $.sweetModal.THEME_LIGHT
 		type: $.sweetModal.TYPE_MODAL
