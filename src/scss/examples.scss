@@ -118,10 +118,41 @@ header {
 		font-size: 24px;
 	}
 
+	.github {
+		@include cell(middle, 164px);
+		text-align: right;
+
+		a {
+			svg {
+				vertical-align: middle;
+				margin-top: -4px;
+
+				&, path {
+					fill: $pink;
+					transition: all 0.2s;
+				}
+			}
+
+			span {
+				font-size: 18px;
+				font-weight: 600;
+			}
+
+			&:hover {
+				text-decoration: none;
+
+				svg, svg path {
+					fill: $lightGrey;
+				}
+			}
+		}
+	}
+
 	@include media(tablet) {
 		display: block;
+		padding-bottom: 48px;
 
-		> .logo, .slogan {
+		> .logo, .slogan, .github {
 			display: block;
 			width: auto;
 			text-align: center;
@@ -130,7 +161,12 @@ header {
 		}
 
 		> .logo + .slogan {
-			margin-top: 16px;
+			margin-top: -24px;
+		}
+
+		> .logo + .github,
+		> .slogan + .github {
+			margin-top: 24px;
 		}
 	}
 }
