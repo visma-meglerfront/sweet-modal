@@ -28,8 +28,6 @@ class SweetModal
 					class: ''
 				, obj)
 
-				console.log name, obj, obj.action
-
 				# Fallback for $.confirm code
 				if obj.classes.length < 1
 					obj.classes = obj.class
