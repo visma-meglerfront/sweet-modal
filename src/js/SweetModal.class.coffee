@@ -118,7 +118,7 @@ class SweetModal
 	_constructContent: ($overlay, $modal) ->
 		if typeof @params.content is 'string'
 			# Check if it is a YouTUbe Link
-			if m = @params.content.match(/^.*(?:youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=)([^#\&\?]*).*$/)
+			if m = @params.content.match(/^\S+youtu\.?be\S+(?:v=|\/v\/)(\w+)$/)
 				@params.content = '<iframe width="100%" height="400" src="https://www.youtube.com/embed/' + m[1] + '" frameborder="0" allowfullscreen></iframe>'
 
 			if @params.icon isnt ''
