@@ -157,7 +157,7 @@
 	###
 	$.sweetModal.prompt = (title, placeholder = '', value = '', successCallback = null, errorCallback = null) ->
 		# prepare content template
-		content = $(templates.prepare(templates.prompt, 
+		content = $(templates.prepare(templates.prompt,
 			TYPE: 'text'
 			PLACEHOLDER: placeholder
 			VALUE: value
@@ -194,7 +194,7 @@
 		);
 
 	# Defaults
-	
+
 	###*
 	 * Default Settings for $.sweetModal
 	 *
@@ -233,7 +233,17 @@
 		onClose: null
 
 	$.sweetModal.defaultCallbacks =
+		_initialBodyStyle:
+		  'height': undefined
+		  'overflow': undefined
+
+		# Sets inital style to current values or defaults
+		_setInitialBodyStyle: ->
+			@_initialBodyStyle.height = $('body').css('height') or 'auto'
+			@_initialBodyStyle.overflow = $('body').css('overflow') or 'auto'
+
 		onOpen: () ->
+			@_setInitialBodyStyle()
 			# Pin Layout
 			$('body').css(
 				overflow: 'hidden',
@@ -244,17 +254,17 @@
 			$('#content_wrap').addClass('blurred')
 
 		onClose: () ->
-			# Unpin layout
+			# Unpin layout and restore inital body style
 			$('body').css(
-				overflow: 'auto'
-				height: 'auto'
+				overflow: @_initialBodyStyle.overflow,
+				height: @_initialBodyStyle.height
 			)
 
 			# Unblur
 			$('#content_wrap').removeClass('blurred')
 
 	# Adapters
-	
+
 	###*
 	 * Adapter for $.confirm compatibility. This is used to be fully compatible
 	 * with code using Tutorialzine's $.confirm plugin, by which this plugin was inspired.
