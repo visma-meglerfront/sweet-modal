@@ -272,6 +272,7 @@ class SweetModal
 				if $modalBox.height() > $(window).height()
 					$modalBox.css(
 						top: '0'
+						marginTop: '96px'
 					)
 				else
 					$modalBox.css(
