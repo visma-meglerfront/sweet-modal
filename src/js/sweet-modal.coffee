@@ -80,6 +80,8 @@
 		modal = new SweetModal(params)
 		modal.open()
 
+		$.sweetModal.openModals.push(modal)
+
 		# return handle
 		return modal
 
@@ -193,6 +195,9 @@
 				$overlay.find('input').focus()
 		);
 
+	$.sweetModal.allModalsClosed = () ->
+		$.sweetModal.openModals.length is 0
+
 	# Defaults
 	
 	###*
@@ -244,14 +249,17 @@
 			$('#content_wrap').addClass('blurred')
 
 		onClose: () ->
-			# Unpin layout
-			$('body').css(
-				overflow: 'auto'
-				height: 'auto'
-			)
+			if $.sweetModal.allModalsClosed()
+				# Unpin layout
+				$('body').css(
+					overflow: 'auto'
+					height: 'auto'
+				)
 
-			# Unblur
-			$('#content_wrap').removeClass('blurred')
+				# Unblur
+				$('#content_wrap').removeClass('blurred')
+
+	$.sweetModal.openModals = []
 
 	# Adapters
 	

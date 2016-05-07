@@ -328,13 +328,16 @@ class SweetModal
 	close: () =>
 		$overlay = @tojQueryObject()
 
+		# Remove modal from stack
+		$.sweetModal.openModals = (modal for modal in $.sweetModal.openModals when modal.getParams() isnt @.getParams())
+
 		$overlay.removeClass('open')
 		@params.onClose()
 
 		setTimeout(() =>
 			$overlay.remove()
 		, 300)
-
+		
 		return @
 
 # Export
