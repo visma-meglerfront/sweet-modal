@@ -241,8 +241,7 @@
 		onOpen: () ->
 			# Pin Layout
 			$('body').css(
-				overflow: 'hidden',
-				height: '100%'
+				overflow: 'hidden'
 			)
 
 			# Blur
@@ -253,7 +252,6 @@
 				# Unpin layout
 				$('body').css(
 					overflow: 'auto'
-					height: 'auto'
 				)
 
 				# Unblur
