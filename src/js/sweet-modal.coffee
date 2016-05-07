@@ -43,7 +43,7 @@
 		# - it has title + icon
 		if not props.title or props.icon and props.title
 			props.type = $.sweetModal.TYPE_ALERT
-			props.classes = $.merge(props.classes || [], ['alert'])
+			props.classes = props.classes || ['alert']
 
 		# Merge params with default settings
 		params = $.extend({}, $.sweetModal.defaultSettings, props)
