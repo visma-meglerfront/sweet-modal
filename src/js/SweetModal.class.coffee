@@ -330,7 +330,7 @@ class SweetModal
 		$overlay = @tojQueryObject()
 
 		# Remove modal from stack
-		$.sweetModal.openModals = (modal for modal in $.sweetModal.openModals when modal.getParams() isnt @.getParams())
+		$.sweetModal.storage.openModals = (modal for modal in $.sweetModal.storage.openModals when modal.getParams() isnt @.getParams())
 
 		$overlay.removeClass('open')
 		@params.onClose()

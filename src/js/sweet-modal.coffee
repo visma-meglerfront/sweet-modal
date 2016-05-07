@@ -80,7 +80,7 @@
 		modal = new SweetModal(params)
 		modal.open()
 
-		$.sweetModal.openModals.push(modal)
+		$.sweetModal.storage.openModals.push(modal)
 
 		# return handle
 		return modal
@@ -196,7 +196,7 @@
 		);
 
 	$.sweetModal.allModalsClosed = () ->
-		$.sweetModal.openModals.length is 0
+		$.sweetModal.storage.openModals.length is 0
 
 	# Defaults
 	
@@ -259,7 +259,8 @@
 				# Unblur
 				$('#content_wrap').removeClass('blurred')
 
-	$.sweetModal.openModals = []
+	$.sweetModal.storage =
+		openModals: []
 
 	# Adapters
 	
