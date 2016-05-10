@@ -8,8 +8,8 @@ alert, confirm, prompt and Modal - only better!
 
 Install SweetModal through bower **or** npm:
 
-    npm install sweetmodal
-    bower install sweetmodal
+    npm install sweet-modal
+    bower install sweet-modal
     
 You can also install it manually by [downloading a release archive](https://github.com/adeptoas/sweet-modal/releases).
 
