@@ -1143,7 +1143,7 @@
       border-right-color: #1c1e23; }
     .sweet-modal-overlay.dark-modal .sweet-modal-box .sweet-modal-close a.sweet-modal-close-link {
       background-color: #1c1e23;
-      background-image: url(../images/close_light.svg); }
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" fill="#fff" /></svg>'); }
       .sweet-modal-overlay.dark-modal .sweet-modal-box .sweet-modal-close a.sweet-modal-close-link:hover {
         background-color: #0099cc; }
     .sweet-modal-overlay.dark-modal .sweet-modal-box .sweet-modal-icon.sweet-modal-success::before, .sweet-modal-overlay.dark-modal .sweet-modal-box .sweet-modal-icon.sweet-modal-success::after, .sweet-modal-overlay.dark-modal .sweet-modal-box .sweet-modal-icon.sweet-modal-success .sweet-modal-fix {
