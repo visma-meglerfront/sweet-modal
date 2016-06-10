@@ -1,6 +1,6 @@
 /*!
  * SweetModal: Sweet, easy and powerful modals and dialogs
- * v1.2.0, 2016-05-10
+ * v1.2.1, 2016-06-10
  * http://github.com/adeptoas/sweet-modal
  *
  * Copyright (c) 2016 Adepto.as AS · Oslo, Norway
@@ -43,13 +43,14 @@ SweetModal = (function() {
    */
 
   SweetModal.prototype._constructButtons = function($modal) {
-    var $button, $buttons, name, obj, ref;
+    var $button, $buttons, label, name, obj, ref;
     $buttons = $(templates.buttons);
     if (typeof this.params.buttons === 'object' && helpers.objectSize(this.params.buttons) > 0) {
       ref = this.params.buttons;
       for (name in ref) {
         obj = ref[name];
         obj = $.extend({
+          label: void 0,
           action: function() {},
           classes: '',
           "class": ''
@@ -57,7 +58,12 @@ SweetModal = (function() {
         if (obj.classes.length < 1) {
           obj.classes = obj["class"];
         }
-        $button = $('<a href="javascript:void(0);" class="button ' + obj.classes + '">' + name + '</a>');
+        if (obj.label || obj.label === '') {
+          label = obj.label;
+        } else {
+          label = name;
+        }
+        $button = $('<a href="javascript:void(0);" class="button ' + obj.classes + '">' + label + '</a>');
         $button.bind('click', {
           buttonObject: obj,
           parentObject: this
@@ -517,7 +523,7 @@ module.exports = {
   	 * @return {SweetModal}
    */
   $.sweetModal.confirm = function(arg1, arg2, arg3, arg4) {
-    var buttons, content, errorCallback, successCallback, title;
+    var content, errorCallback, successCallback, title;
     title = '';
     if (typeof arg1 === 'string' && (typeof arg2 === 'function' || arg2 === void 0 || arg2 === null)) {
       content = arg1;
@@ -531,19 +537,21 @@ module.exports = {
     } else {
       throw 'Invalid argument configuration.';
     }
-    buttons = {};
-    buttons[$.sweetModal.defaultSettings.confirm.cancel.label] = {
-      action: errorCallback,
-      classes: $.sweetModal.defaultSettings.confirm.cancel.classes
-    };
-    buttons[$.sweetModal.defaultSettings.confirm.yes.label] = {
-      action: successCallback,
-      classes: $.sweetModal.defaultSettings.confirm.yes.classes
-    };
     return $.sweetModal({
       title: title,
       content: content,
-      buttons: buttons,
+      buttons: {
+        'cancel': {
+          label: $.sweetModal.defaultSettings.confirm.cancel.label,
+          action: errorCallback,
+          classes: $.sweetModal.defaultSettings.confirm.cancel.classes
+        },
+        'ok': {
+          label: $.sweetModal.defaultSettings.confirm.yes.label,
+          action: successCallback,
+          classes: $.sweetModal.defaultSettings.confirm.yes.classes
+        }
+      },
       classes: ['alert', 'confirm'],
       showCloseButton: false,
       blocking: true
@@ -585,20 +593,23 @@ module.exports = {
     buttons = {};
     successCallback = successCallback || function() {};
     errorCallback = errorCallback || function() {};
-    buttons[$.sweetModal.defaultSettings.confirm.cancel.label] = {
-      action: errorCallback,
-      classes: $.sweetModal.defaultSettings.confirm.cancel.classes
-    };
-    buttons[$.sweetModal.defaultSettings.confirm.ok.label] = {
-      action: function() {
-        return successCallback($('.sweet-modal-prompt input').val());
-      },
-      classes: $.sweetModal.defaultSettings.confirm.ok.classes
-    };
     return $.sweetModal({
       title: title,
       content: content.wrap('<div />').parent().html(),
-      buttons: buttons,
+      buttons: {
+        cancel: {
+          label: $.sweetModal.defaultSettings.confirm.cancel.label,
+          action: errorCallback,
+          classes: $.sweetModal.defaultSettings.confirm.cancel.classes
+        },
+        ok: {
+          label: $.sweetModal.defaultSettings.confirm.ok.label,
+          classes: $.sweetModal.defaultSettings.confirm.ok.classes,
+          action: function() {
+            return successCallback($('.sweet-modal-prompt input').val());
+          }
+        }
+      },
       classes: ['prompt'],
       showCloseButton: false,
       blocking: true,

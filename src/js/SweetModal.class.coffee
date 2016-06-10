@@ -23,6 +23,7 @@ class SweetModal
 		if typeof @params.buttons is 'object' and helpers.objectSize(@params.buttons) > 0
 			for name, obj of @params.buttons
 				obj = $.extend(
+					label: undefined
 					action: () ->
 					classes: ''
 					class: ''
@@ -32,8 +33,14 @@ class SweetModal
 				if obj.classes.length < 1
 					obj.classes = obj.class
 
+				# Label-option override
+				if obj.label or obj.label is ''
+					label = obj.label
+				else
+					label = name
+
 				# Construct single button
-				$button = $('<a href="javascript:void(0);" class="button ' + obj.classes + '">' + name + '</a>')
+				$button = $('<a href="javascript:void(0);" class="button ' + obj.classes + '">' + label + '</a>')
 
 				# Add callback
 				$button.bind('click', { buttonObject: obj, parentObject: @ }, (e) ->

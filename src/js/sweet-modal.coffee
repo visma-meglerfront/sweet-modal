@@ -121,24 +121,22 @@
 		else
 			throw 'Invalid argument configuration.'
 
-		# Construct buttons
-		buttons = {}
-
-		# cancel-button
-		buttons[$.sweetModal.defaultSettings.confirm.cancel.label] =
-			action: errorCallback
-			classes: $.sweetModal.defaultSettings.confirm.cancel.classes
-
-		# yes-button
-		buttons[$.sweetModal.defaultSettings.confirm.yes.label] =
-			action: successCallback
-			classes: $.sweetModal.defaultSettings.confirm.yes.classes
-
 		# create modal
 		return $.sweetModal(
 			title: title
 			content: content
-			buttons: buttons
+
+			buttons:
+				'cancel':
+					label: $.sweetModal.defaultSettings.confirm.cancel.label
+					action: errorCallback
+					classes: $.sweetModal.defaultSettings.confirm.cancel.classes
+
+				'ok':
+					label: $.sweetModal.defaultSettings.confirm.yes.label
+					action: successCallback
+					classes: $.sweetModal.defaultSettings.confirm.yes.classes
+
 			classes: ['alert', 'confirm']
 			showCloseButton: false
 			blocking: true
@@ -170,23 +168,24 @@
 		successCallback = successCallback || () ->
 		errorCallback = errorCallback || () ->
 
-		# cancel-button
-		buttons[$.sweetModal.defaultSettings.confirm.cancel.label] =
-			action: errorCallback
-			classes: $.sweetModal.defaultSettings.confirm.cancel.classes
-
-		# ok-button
-		buttons[$.sweetModal.defaultSettings.confirm.ok.label] =
-			action: () ->
-				successCallback($('.sweet-modal-prompt input').val())
-
-			classes: $.sweetModal.defaultSettings.confirm.ok.classes
-
 		# create modal
 		return $.sweetModal(
 			title: title
 			content: content.wrap('<div />').parent().html()
-			buttons: buttons
+
+			buttons:
+				cancel:
+					label: $.sweetModal.defaultSettings.confirm.cancel.label
+					action: errorCallback
+					classes: $.sweetModal.defaultSettings.confirm.cancel.classes
+
+				ok:
+					label: $.sweetModal.defaultSettings.confirm.ok.label
+					classes: $.sweetModal.defaultSettings.confirm.ok.classes
+					action: () ->
+						successCallback($('.sweet-modal-prompt input').val())
+
+
 			classes: ['prompt']
 			showCloseButton: false
 			blocking: true,

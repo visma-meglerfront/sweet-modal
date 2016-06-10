@@ -49,11 +49,12 @@
 								title: 'Oh noes…',
 								icon: $.sweetModal.ICON_ERROR,
 
-								buttons: {
-									'That\'s fine': {
+								buttons: [
+									{
+										label: 'That\'s fine',
 										classes: 'redB'
 									}
-								}
+								]
 							}
 						]
 					},
@@ -157,14 +158,16 @@
 								},
 
 								buttons: {
-									'Action 2': {
+									someOtherAction: {
+										label: 'Action 2',
 										classes: 'secondaryB bordered flat',
 										action: function() {
 											return $.sweetModal('You clicked Action 2!');
 										}
 									},
 
-									'Action 1': {
+									someAction: {
+										label: 'Action 1',
 										classes: '',
 										action: function() {
 											return $.sweetModal('You clicked Action 1!');
@@ -335,11 +338,12 @@
 	title: 'Oh noes…',
 	icon: $.sweetModal.ICON_ERROR,
 
-	buttons: {
-		'That\'s fine': {
+	buttons: [
+		{
+			label: 'That\'s fine',
 			classes: 'redB'
 		}
-	}
+	]
 });</pre>
 				</div>
 			</div>
@@ -466,14 +470,16 @@
 	},
 
 	buttons: {
-		'Action 2': {
+		someOtherAction: {
+			label: 'Action 2',
 			classes: 'secondaryB bordered flat',
 			action: function() {
 				return $.sweetModal('You clicked Action 2!');
 			}
 		},
 
-		'Action 1': {
+		someAction: {
+			label: 'Action 1',
 			classes: '',
 			action: function() {
 				return $.sweetModal('You clicked Action 1!');
@@ -729,7 +735,11 @@
 						<tr>
 							<td>buttons</td>
 							<td><pre>{}</pre></td>
-							<td>The key of each button is the label. See button options for individual options.</td>
+							<td>
+								This can either be an array or an object.<br />
+								If it is an object you can omit button labels to make the object keys the labels.<br />
+								See button options for individual options.
+							</td>
 						</tr>
 
 						<tr>
@@ -800,6 +810,17 @@
 						</tr>
 
 						<tr>
+							<td>label</td>
+							<td><pre>''</pre></td>
+							<td>
+								<span class="new">1.3</span>
+								
+								The label for the button. If this is falsy (but not empty), the key of the button object
+								is used as the label.
+							</td>
+						</tr>
+
+						<tr>
 							<td>action</td>
 							<td><pre>function(sweetModal) {}</pre></td>
 							<td>
@@ -830,59 +851,59 @@
 							</td>
 						</tr>
 					</table>
+				</div>
 
-					<h3>Overrides</h3>
+				<h3>Overrides</h3>
 
-					<p class="desc">
-						There are implied values used by the plugin to enable convenient alert, confirm and prompt calls.<br />
-						This is a list of all implied values (path inside <code>$.sweetModal.defaultSettings</code>):
-					</p>
+				<p class="desc">
+					There are implied values used by the plugin to enable convenient alert, confirm and prompt calls.<br />
+					This is a list of all implied values (path inside <code>$.sweetModal.defaultSettings</code>):
+				</p>
 
-					<div class="twrap">
-						<table>
-							<tr>
-								<th>Path</th>
-								<th>Default Value</th>
-								<th>Description</th>
-							</tr>
+				<div class="twrap">
+					<table>
+						<tr>
+							<th>Path</th>
+							<th>Default Value</th>
+							<th>Description</th>
+						</tr>
 
-							<tr>
-								<td>confirm.yes.label</td>
-								<td><pre>'Yes'</pre></td>
-								<td>Label of the "Yes" button</td>
-							</tr>
+						<tr>
+							<td>confirm.yes.label</td>
+							<td><pre>'Yes'</pre></td>
+							<td>Label of the "Yes" button</td>
+						</tr>
 
-							<tr>
-								<td>confirm.yes.classes</td>
-								<td><pre>'greenB'</pre></td>
-								<td>Space-seperated list of classes to add to the "Yes" button</td>
-							</tr>
+						<tr>
+							<td>confirm.yes.classes</td>
+							<td><pre>'greenB'</pre></td>
+							<td>Space-seperated list of classes to add to the "Yes" button</td>
+						</tr>
 
-							<tr>
-								<td>confirm.ok.label</td>
-								<td><pre>'OK'</pre></td>
-								<td>Label of the "OK" button</td>
-							</tr>
+						<tr>
+							<td>confirm.ok.label</td>
+							<td><pre>'OK'</pre></td>
+							<td>Label of the "OK" button</td>
+						</tr>
 
-							<tr>
-								<td>confirm.ok.classes</td>
-								<td><pre>'greenB'</pre></td>
-								<td>Space-seperated list of classes to add to the "OK" button</td>
-							</tr>
+						<tr>
+							<td>confirm.ok.classes</td>
+							<td><pre>'greenB'</pre></td>
+							<td>Space-seperated list of classes to add to the "OK" button</td>
+						</tr>
 
-							<tr>
-								<td>confirm.cancel.label</td>
-								<td><pre>'Cancel'</pre></td>
-								<td>Label of the "Cancel" button</td>
-							</tr>
+						<tr>
+							<td>confirm.cancel.label</td>
+							<td><pre>'Cancel'</pre></td>
+							<td>Label of the "Cancel" button</td>
+						</tr>
 
-							<tr>
-								<td>confirm.cancel.classes</td>
-								<td><pre>'redB bordered flat'</pre></td>
-								<td>Space-seperated list of classes to add to the "Cancel" button</td>
-							</tr>
-						</table>
-					</div>
+						<tr>
+							<td>confirm.cancel.classes</td>
+							<td><pre>'redB bordered flat'</pre></td>
+							<td>Space-seperated list of classes to add to the "Cancel" button</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</section>

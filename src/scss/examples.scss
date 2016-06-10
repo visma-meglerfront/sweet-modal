@@ -38,6 +38,29 @@ p.desc {
 	color: $lightGrey;
 }
 
+span.new {
+	display: inline-block;
+
+	padding: {
+		left: 4px;
+		right: 4px;
+		top: 1px;
+		bottom: 1px;
+	}
+
+	background: $lightGrey;
+	color: #fff;
+	border-radius: 3px;
+
+	font-size: 12px;
+	vertical-align: middle;
+
+	margin: {
+		top: -2px;
+		right: 2px;
+	}
+}
+
 a {
 	color: $accent;
 	text-decoration: none;
