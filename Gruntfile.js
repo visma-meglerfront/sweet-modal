@@ -8,14 +8,12 @@ module.exports = function(grunt) {
 		opts: {
 			scss: 'src/scss',
 			js: 'src/js',
-			images: 'src/images',
 			examples: 'examples',
 
 			dist: {
 				parent: 'dist',
 				min: 'dist/min',
 				dev: 'dist/dev',
-				images: 'dist/images'
 			},
 
 			archive: {
@@ -28,18 +26,10 @@ module.exports = function(grunt) {
 			examples: [
 				'<%= opts.examples %>/css',
 				'<%= opts.examples %>/js',
-				'<%= opts.examples %>/images'
 			]
 		},
 
 		copy: {
-			images: {
-				expand: true,
-				cwd: '<%= opts.images %>',
-				src: '**',
-				dest: '<%= opts.dist.images %>'
-			},
-
 			'examples-deps-js': {
 				expand: true,
 				flatten: true,
@@ -52,14 +42,7 @@ module.exports = function(grunt) {
 				flatten: true,
 				src: ['<%= opts.dist.min %>/jquery.sweet-modal.min.css'],
 				dest: '<%= opts.examples %>/css/'
-			},
-
-			'examples-deps-images': {
-				expand: true,
-				cwd: '<%= opts.images %>',
-				src: '**',
-				dest: '<%= opts.examples %>/images/'
-			},
+			}
 		},
 
 		sass: {
@@ -154,7 +137,7 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.registerTask('copy:examples-deps', ['copy:examples-deps-js', 'copy:examples-deps-css', 'copy:examples-deps-images']);
+	grunt.registerTask('copy:examples-deps', ['copy:examples-deps-js', 'copy:examples-deps-css']);
 
 	grunt.registerTask('compile:js', ['browserify:sweet-modal', 'uglify:sweet-modal-min']);
 
@@ -164,7 +147,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('compile:examples', ['clean:examples', 'compile:scss:examples', 'copy:examples-deps']);
 
-	grunt.registerTask('compile', ['clean', 'compile:js', 'compile:scss:sweet-modal', 'copy:images', 'compile:examples']);
+	grunt.registerTask('compile', ['clean', 'compile:js', 'compile:scss:sweet-modal', 'compile:examples']);
 
 	grunt.registerTask('default', ['compile']);
 };
