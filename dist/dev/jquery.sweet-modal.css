@@ -329,33 +329,6 @@
         background: #006b8f;
         color: #ccf2ff;
         border-color: #004d66; }
-  .sweet-modal-buttons a.blueB.button,
-  .sweet-modal-buttons button.blueB {
-    background: #27AAE1;
-    border-color: #1985b2; }
-    .sweet-modal-buttons a.blueB.button:hover,
-    .sweet-modal-buttons button.blueB:hover {
-      background: #4bb8e6; }
-    .sweet-modal-buttons a.blueB.button:active,
-    .sweet-modal-buttons button.blueB:active {
-      background: #1985b2;
-      color: white;
-      border-color: #146a8e; }
-    .sweet-modal-buttons a.blueB.bordered.button,
-    .sweet-modal-buttons button.blueB.bordered {
-      background: none;
-      border-color: #27AAE1;
-      color: #27AAE1; }
-      .sweet-modal-buttons a.blueB.bordered.button:hover,
-      .sweet-modal-buttons button.blueB.bordered:hover {
-        background: #27AAE1;
-        color: #fff;
-        border-color: #1985b2; }
-      .sweet-modal-buttons a.blueB.bordered.button:active,
-      .sweet-modal-buttons button.blueB.bordered:active {
-        background: #1985b2;
-        color: white;
-        border-color: #146a8e; }
   .sweet-modal-buttons a.redB.button,
   .sweet-modal-buttons button.redB {
     background: #E64A33;
@@ -383,33 +356,6 @@
         background: #c42e18;
         color: white;
         border-color: #9f2614; }
-  .sweet-modal-buttons a.yellowB.button,
-  .sweet-modal-buttons button.yellowB {
-    background: #f39c12;
-    border-color: #be780a; }
-    .sweet-modal-buttons a.yellowB.button:hover,
-    .sweet-modal-buttons button.yellowB:hover {
-      background: #f5ac39; }
-    .sweet-modal-buttons a.yellowB.button:active,
-    .sweet-modal-buttons button.yellowB:active {
-      background: #be780a;
-      color: white;
-      border-color: #976008; }
-    .sweet-modal-buttons a.yellowB.bordered.button,
-    .sweet-modal-buttons button.yellowB.bordered {
-      background: none;
-      border-color: #f39c12;
-      color: #f39c12; }
-      .sweet-modal-buttons a.yellowB.bordered.button:hover,
-      .sweet-modal-buttons button.yellowB.bordered:hover {
-        background: #f39c12;
-        color: #fff;
-        border-color: #be780a; }
-      .sweet-modal-buttons a.yellowB.bordered.button:active,
-      .sweet-modal-buttons button.yellowB.bordered:active {
-        background: #be780a;
-        color: white;
-        border-color: #976008; }
   .sweet-modal-buttons a.blueB.button,
   .sweet-modal-buttons button.blueB {
     background: #27AAE1;
@@ -464,33 +410,199 @@
         background: #a0cd37;
         color: white;
         border-color: #88af2c; }
-  .sweet-modal-buttons a.redB.button,
-  .sweet-modal-buttons button.redB {
-    background: #E64A33;
-    border-color: #c42e18; }
-    .sweet-modal-buttons a.redB.button:hover,
-    .sweet-modal-buttons button.redB:hover {
-      background: #ea6a57; }
-    .sweet-modal-buttons a.redB.button:active,
-    .sweet-modal-buttons button.redB:active {
-      background: #c42e18;
-      color: white;
-      border-color: #9f2614; }
-    .sweet-modal-buttons a.redB.bordered.button,
-    .sweet-modal-buttons button.redB.bordered {
+  .sweet-modal-buttons a.darkGreyB.button,
+  .sweet-modal-buttons button.darkGreyB {
+    background: #5A5A5A;
+    border-color: #3b3b3b;
+    color: #292c34; }
+    .sweet-modal-buttons a.darkGreyB.button:hover,
+    .sweet-modal-buttons button.darkGreyB:hover {
+      background: #464646;
+      color: #343842; }
+    .sweet-modal-buttons a.darkGreyB.button:active,
+    .sweet-modal-buttons button.darkGreyB:active {
+      background: #3b3b3b;
+      box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2);
+      border-color: #272727; }
+    .sweet-modal-buttons a.darkGreyB.bordered.button,
+    .sweet-modal-buttons button.darkGreyB.bordered {
       background: none;
-      border-color: #E64A33;
-      color: #E64A33; }
-      .sweet-modal-buttons a.redB.bordered.button:hover,
-      .sweet-modal-buttons button.redB.bordered:hover {
-        background: #E64A33;
+      border-color: #5A5A5A;
+      color: #5A5A5A; }
+      .sweet-modal-buttons a.darkGreyB.bordered.button:hover,
+      .sweet-modal-buttons button.darkGreyB.bordered:hover {
+        background: #5A5A5A;
+        color: #292c34;
+        border-color: #5A5A5A; }
+      .sweet-modal-buttons a.darkGreyB.bordered.button:active,
+      .sweet-modal-buttons button.darkGreyB.bordered:active {
+        background: #3b3b3b;
+        color: black;
+        border-color: #272727; }
+  .sweet-modal-buttons a.lightGreyB.button,
+  .sweet-modal-buttons button.lightGreyB {
+    background: #999;
+    border-color: #7a7a7a;
+    color: #292c34; }
+    .sweet-modal-buttons a.lightGreyB.button:hover,
+    .sweet-modal-buttons button.lightGreyB:hover {
+      background: #858585;
+      color: #343842; }
+    .sweet-modal-buttons a.lightGreyB.button:active,
+    .sweet-modal-buttons button.lightGreyB:active {
+      background: #7a7a7a;
+      box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.2);
+      border-color: #666666; }
+    .sweet-modal-buttons a.lightGreyB.bordered.button,
+    .sweet-modal-buttons button.lightGreyB.bordered {
+      background: none;
+      border-color: #999;
+      color: #999; }
+      .sweet-modal-buttons a.lightGreyB.bordered.button:hover,
+      .sweet-modal-buttons button.lightGreyB.bordered:hover {
+        background: #999;
+        color: #292c34;
+        border-color: #999; }
+      .sweet-modal-buttons a.lightGreyB.bordered.button:active,
+      .sweet-modal-buttons button.lightGreyB.bordered:active {
+        background: #7a7a7a;
+        color: #1a1a1a;
+        border-color: #666666; }
+  .sweet-modal-buttons a.yellowB.button,
+  .sweet-modal-buttons button.yellowB {
+    background: #f39c12;
+    border-color: #be780a; }
+    .sweet-modal-buttons a.yellowB.button:hover,
+    .sweet-modal-buttons button.yellowB:hover {
+      background: #f5ac39; }
+    .sweet-modal-buttons a.yellowB.button:active,
+    .sweet-modal-buttons button.yellowB:active {
+      background: #be780a;
+      color: white;
+      border-color: #976008; }
+    .sweet-modal-buttons a.yellowB.bordered.button,
+    .sweet-modal-buttons button.yellowB.bordered {
+      background: none;
+      border-color: #f39c12;
+      color: #f39c12; }
+      .sweet-modal-buttons a.yellowB.bordered.button:hover,
+      .sweet-modal-buttons button.yellowB.bordered:hover {
+        background: #f39c12;
         color: #fff;
-        border-color: #c42e18; }
-      .sweet-modal-buttons a.redB.bordered.button:active,
-      .sweet-modal-buttons button.redB.bordered:active {
-        background: #c42e18;
+        border-color: #be780a; }
+      .sweet-modal-buttons a.yellowB.bordered.button:active,
+      .sweet-modal-buttons button.yellowB.bordered:active {
+        background: #be780a;
         color: white;
-        border-color: #9f2614; }
+        border-color: #976008; }
+  .sweet-modal-buttons a.purpleB.button,
+  .sweet-modal-buttons button.purpleB {
+    background: #673AB7;
+    border-color: #4d2b89; }
+    .sweet-modal-buttons a.purpleB.button:hover,
+    .sweet-modal-buttons button.purpleB:hover {
+      background: #7c52c8; }
+    .sweet-modal-buttons a.purpleB.button:active,
+    .sweet-modal-buttons button.purpleB:active {
+      background: #4d2b89;
+      color: #f7f4fc;
+      border-color: #3b216a; }
+    .sweet-modal-buttons a.purpleB.bordered.button,
+    .sweet-modal-buttons button.purpleB.bordered {
+      background: none;
+      border-color: #673AB7;
+      color: #673AB7; }
+      .sweet-modal-buttons a.purpleB.bordered.button:hover,
+      .sweet-modal-buttons button.purpleB.bordered:hover {
+        background: #673AB7;
+        color: #fff;
+        border-color: #4d2b89; }
+      .sweet-modal-buttons a.purpleB.bordered.button:active,
+      .sweet-modal-buttons button.purpleB.bordered:active {
+        background: #4d2b89;
+        color: #f7f4fc;
+        border-color: #3b216a; }
+  .sweet-modal-buttons a.tealB.button,
+  .sweet-modal-buttons button.tealB {
+    background: #009688;
+    border-color: #005951; }
+    .sweet-modal-buttons a.tealB.button:hover,
+    .sweet-modal-buttons button.tealB:hover {
+      background: #00bfad; }
+    .sweet-modal-buttons a.tealB.button:active,
+    .sweet-modal-buttons button.tealB:active {
+      background: #005951;
+      color: #96fff5;
+      border-color: #00302c; }
+    .sweet-modal-buttons a.tealB.bordered.button,
+    .sweet-modal-buttons button.tealB.bordered {
+      background: none;
+      border-color: #009688;
+      color: #009688; }
+      .sweet-modal-buttons a.tealB.bordered.button:hover,
+      .sweet-modal-buttons button.tealB.bordered:hover {
+        background: #009688;
+        color: #fff;
+        border-color: #005951; }
+      .sweet-modal-buttons a.tealB.bordered.button:active,
+      .sweet-modal-buttons button.tealB.bordered:active {
+        background: #005951;
+        color: #96fff5;
+        border-color: #00302c; }
+  .sweet-modal-buttons a.brownB.button,
+  .sweet-modal-buttons button.brownB {
+    background: #795548;
+    border-color: #533a31; }
+    .sweet-modal-buttons a.brownB.button:hover,
+    .sweet-modal-buttons button.brownB:hover {
+      background: #936757; }
+    .sweet-modal-buttons a.brownB.button:active,
+    .sweet-modal-buttons button.brownB:active {
+      background: #533a31;
+      color: #e8dcd8;
+      border-color: #392822; }
+    .sweet-modal-buttons a.brownB.bordered.button,
+    .sweet-modal-buttons button.brownB.bordered {
+      background: none;
+      border-color: #795548;
+      color: #795548; }
+      .sweet-modal-buttons a.brownB.bordered.button:hover,
+      .sweet-modal-buttons button.brownB.bordered:hover {
+        background: #795548;
+        color: #fff;
+        border-color: #533a31; }
+      .sweet-modal-buttons a.brownB.bordered.button:active,
+      .sweet-modal-buttons button.brownB.bordered:active {
+        background: #533a31;
+        color: #e8dcd8;
+        border-color: #392822; }
+  .sweet-modal-buttons a.orangeB.button,
+  .sweet-modal-buttons button.orangeB {
+    background: #F57C00;
+    border-color: #b85d00; }
+    .sweet-modal-buttons a.orangeB.button:hover,
+    .sweet-modal-buttons button.orangeB:hover {
+      background: #ff901f; }
+    .sweet-modal-buttons a.orangeB.button:active,
+    .sweet-modal-buttons button.orangeB:active {
+      background: #b85d00;
+      color: #fffaf5;
+      border-color: #8f4800; }
+    .sweet-modal-buttons a.orangeB.bordered.button,
+    .sweet-modal-buttons button.orangeB.bordered {
+      background: none;
+      border-color: #F57C00;
+      color: #F57C00; }
+      .sweet-modal-buttons a.orangeB.bordered.button:hover,
+      .sweet-modal-buttons button.orangeB.bordered:hover {
+        background: #F57C00;
+        color: #fff;
+        border-color: #b85d00; }
+      .sweet-modal-buttons a.orangeB.bordered.button:active,
+      .sweet-modal-buttons button.orangeB.bordered:active {
+        background: #b85d00;
+        color: #fffaf5;
+        border-color: #8f4800; }
   .sweet-modal-buttons a.pinkB.button,
   .sweet-modal-buttons button.pinkB {
     background: #E91E63;

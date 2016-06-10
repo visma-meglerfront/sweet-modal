@@ -1,6 +1,6 @@
 {
   "name": "sweet-modal",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Sweet Modal Plugin for jQuery",
   "main": "src/dist/min/jquery.sweet-modal.js",
   "scripts": {

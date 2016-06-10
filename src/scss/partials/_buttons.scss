@@ -107,14 +107,18 @@
 			}
 		}
 	}
-
+	
 	$colors: (
-		('blue', $blue),
 		('red', $red),
-		('yellow', $yellow),
 		('blue', $blue),
 		('green', $green),
-		('red', $red),
+		('darkGrey', $darkGrey),
+		('lightGrey', $lightGrey),
+		('yellow', $yellow),
+		('purple', $purple),
+		('teal', $teal),
+		('brown', $brown),
+		('orange', $orange),
 		('pink', $pink),
 		('secondary', $secondary),
 		('white', #fff)
