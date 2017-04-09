@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 		opts: {
 			scss: 'src/scss',
 			js: 'src/js',
-			examples: 'examples',
+			examples: 'docs',
 
 			dist: {
 				parent: 'dist',
