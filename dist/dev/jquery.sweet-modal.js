@@ -1,6 +1,6 @@
 /*!
  * SweetModal: Sweet, easy and powerful modals and dialogs
- * v1.3.2, 2017-05-27
+ * v1.3.3, 2017-05-27
  * http://github.com/adeptoas/sweet-modal
  *
  * Copyright (c) 2016 Adepto.as AS · Oslo, Norway
