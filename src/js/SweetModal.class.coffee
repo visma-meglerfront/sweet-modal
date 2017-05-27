@@ -2,8 +2,8 @@ helpers = require('./helpers.coffee')
 templates = require('./templates.coffee')
 
 class SweetModal
-	params = {}
-	$overlay = null
+	params: {}
+	$overlay: null
 
 	constructor: (@params) ->
 

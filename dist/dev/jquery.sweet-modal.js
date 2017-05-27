@@ -1,6 +1,6 @@
 /*!
  * SweetModal: Sweet, easy and powerful modals and dialogs
- * v1.3.1, 2016-06-11
+ * v1.3.2, 2017-05-27
  * http://github.com/adeptoas/sweet-modal
  *
  * Copyright (c) 2016 Adepto.as AS · Oslo, Norway
@@ -18,14 +18,12 @@ helpers = require('./helpers.coffee');
 templates = require('./templates.coffee');
 
 SweetModal = (function() {
-  var $overlay, params;
+  SweetModal.prototype.params = {};
 
-  params = {};
+  SweetModal.prototype.$overlay = null;
 
-  $overlay = null;
-
-  function SweetModal(params1) {
-    this.params = params1;
+  function SweetModal(params) {
+    this.params = params;
     this.close = bind(this.close, this);
   }
 
@@ -195,7 +193,7 @@ SweetModal = (function() {
    */
 
   SweetModal.prototype.tojQueryObject = function() {
-    var $modal;
+    var $modal, $overlay;
     if (this.$overlay) {
       return this.$overlay;
     }
@@ -226,7 +224,7 @@ SweetModal = (function() {
    */
 
   SweetModal.prototype.open = function() {
-    var $icon, scope;
+    var $icon, $overlay, scope;
     scope = this;
     $overlay = this.tojQueryObject();
     $('body').append(this.$overlay);
@@ -283,6 +281,7 @@ SweetModal = (function() {
   };
 
   SweetModal.prototype.bounce = function() {
+    var $overlay;
     $overlay = this.tojQueryObject();
     $overlay.addClass('bounce');
     return setTimeout(function() {
@@ -298,7 +297,7 @@ SweetModal = (function() {
    */
 
   SweetModal.prototype.resize = function() {
-    var $modalBox, mobileView;
+    var $modalBox, $overlay, mobileView;
     $overlay = this.tojQueryObject();
     $modalBox = $overlay.find('.sweet-modal-box');
     mobileView = window.matchMedia('screen and (max-width: 914px)').matches;
@@ -331,6 +330,7 @@ SweetModal = (function() {
    */
 
   SweetModal.prototype.appendListeners = function() {
+    var $overlay;
     $overlay = this.tojQueryObject();
     $overlay.find('.sweet-modal-close-link').off('click').click((function(_this) {
       return function() {
@@ -356,7 +356,7 @@ SweetModal = (function() {
    */
 
   SweetModal.prototype.close = function() {
-    var modal;
+    var $overlay, modal;
     $overlay = this.tojQueryObject();
     $.sweetModal.storage.openModals = (function() {
       var i, len, ref, results;
